@@ -19,6 +19,6 @@ set TMP_CUDA_DIR=%ChocolateyInstall%
 call powershell -command "Expand-Archive -Path %TMP_WORD% -DestinationPath .\%TEMP_DIR_NAME%"
 copy /Y "%DOWNLOAD_DIR%\%TEMP_DIR_NAME%\cuda\bin\*" "%CUDA_INSTALL_TARGET_DIR%\bin"
 copy /Y "%DOWNLOAD_DIR%\%TEMP_DIR_NAME%\cuda\include\*" "%CUDA_INSTALL_TARGET_DIR%\include"
-copy /Y "%DOWNLOAD_DIR%\%TEMP_DIR_NAME%\cuda\lib\*" "%CUDA_INSTALL_TARGET_DIR%\lib"
+copy /Y "%DOWNLOAD_DIR%\%TEMP_DIR_NAME%\cuda\lib\x64\*" "%CUDA_INSTALL_TARGET_DIR%\lib\x64"
 pause
 CD %CURRENT_DIR%

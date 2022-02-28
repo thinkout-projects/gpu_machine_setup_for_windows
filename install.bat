@@ -15,8 +15,8 @@ SET TMP_WORD=SETX /m CUDA_PATH_V%CUDA_VER_PATH_NAME% "%%CUDA_ROOT%%%CUDA_VER_PAT
 %TMP_WORD%
 SET TMP_WORD=SETX /m CUDA_PATH "%%CUDA_ROOT%%%%CUDA_VER_PATH_NAME%%"
 %TMP_WORD%
-SETX /M PATH "C:\tools\miniconda3\condabin;C:\tools\miniconda3\Scripts;C:\tools\miniconda3\Library\bin;%PATH%"
-SET PATH "C:\tools\miniconda3\condabin;C:\tools\miniconda3\Scripts;C:\tools\miniconda3\Library\bin;%PATH%"
+SETX /M PATH "C:\tools\miniconda3\condabin;C:\tools\miniconda3\Scripts;C:\tools\miniconda3\Library\bin;C:\tools\miniconda3;%PATH%"
+SET PATH "C:\tools\miniconda3\condabin;C:\tools\miniconda3\Scripts;C:\tools\miniconda3\Library\bin;C:\tools\miniconda3;%PATH%"
 
 REM chocolatey install
 @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "[System.Net.ServicePointManager]::SecurityProtocol = 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"

@@ -15,17 +15,21 @@ SET TMP_WORD=SETX /m CUDA_PATH_V%CUDA_VER_PATH_NAME% "%%CUDA_ROOT%%%CUDA_VER_PAT
 %TMP_WORD%
 SET TMP_WORD=SETX /m CUDA_PATH "%%CUDA_ROOT%%%%CUDA_VER_PATH_NAME%%"
 %TMP_WORD%
-SETX /M PATH "%PATH%;C:\tools\miniconda3\condabin"
+SETX /M PATH "C:\tools\miniconda3\condabin;C:\tools\miniconda3\Scripts;%PATH%"
 
 REM chocolatey install
 @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "[System.Net.ServicePointManager]::SecurityProtocol = 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 choco upgrade chocolatey -y
 choco install choco.config -y
 SET CONDA="C:\tools\miniconda3\condabin\conda"
+SET PIP="C:\tools\miniconda3\Scripts\pip.exe"
 ECHO miniconda settings.
-%CONDA% create -y -n tensor python==3.8.12
-%CONDA% activate tensor
-pip install -r requirements.txt
+conda install -y python==3.8.12 pip
+REM -------- conda env --------
+REM %CONDA% create -y -n tensor python==3.8.12
+REM %CONDA% activate tensor
+REM ---------------------------
+%PIP% install -r requirements.txt
 ECHO SUCCESS!
 ECHO Please install cudnn!
 ECHO https://developer.nvidia.com/rdp/cudnn-archive

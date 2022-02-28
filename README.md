@@ -65,3 +65,4 @@ CUDAが実行できるかどうかをテストする
 実行時にエラーが出る場合は以下の内容に気をつける
 
 - 実行ファイルの改行コードがCRLFではない。
+- `python`とタイプしてもMicrosoftStoreが起動する場合は、`$PATH`の一番上にPythonのパスが来ていないのが原因。https://stackoverflow.com/questions/58754860/cmd-opens-window-store-when-i-type-python

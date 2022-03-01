@@ -13,7 +13,7 @@ PAUSE
 exit
 )
 cd %DOWNLOAD_DIR%
-for /f "usebackq delims=" %%A in (`DIR /W /A *.zip ^| findstr "^cudnn-11.2-windows-x64-"`) do set TMP_WORD=%%A
+for /f "usebackq delims=" %%A in (`DIR /W /A *.zip ^| findstr "^cudnn-"`) do set TMP_WORD=%%A
 echo %TMP_WORD%
 set TMP_CUDA_DIR=%ChocolateyInstall%
 call powershell -command "Expand-Archive -Path %TMP_WORD% -DestinationPath .\%TEMP_DIR_NAME%"

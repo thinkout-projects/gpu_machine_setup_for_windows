@@ -1,6 +1,6 @@
 # WindowsのGPU環境を作る
 
-## 実装
+## 必要箇所の書き換え
 
 Tensorflowのバージョンが違う場合は、以下のファイル内容を変更する
 
@@ -10,6 +10,8 @@ Tensorflowのバージョンが違う場合は、以下のファイル内容を�
 | install.bat      | `SETX /m CUDA_VER "11.2"`                      |
 |                  | `SETX /m CUDA_VER_PATH_NAME "11_2"`            |
 | requirements.txt | `tensorflow-gpu==2.5.3`                        |
+
+## 構築手順
 
 ### 1.CUDNNをダウンロードしておく
 
@@ -27,11 +29,11 @@ Tensorflowのバージョンが違う場合は、以下のファイル内容を�
 > CUDNNのダウンロード
 > https://developer.nvidia.com/rdp/cudnn-archive
 
-### 2.必要な内容をインストールと環境変数を設定
+### 2.install.batを実行して必要な内容をインストールと環境変数を設定
 
 以下の内容が実行されます。
 
-- 環境変数を設定
+- 環境変数をWindowsに設定
 - chocolateryをインストール
 - chocolateryで、`choco.config`ファイルに記載されている内容をインストール
 - tensorという仮想環境を作成して`requirements.txt`の内容をインストール
@@ -43,9 +45,13 @@ rem 実行は管理者権限で実行してください。
 .\install.bat
 ```
 
-### 3.cudnnのインストール
+#### 2-2. 複数回実行の注意
 
-CUDNNのみオフィシャルからダウンロードする必要があるので、別のスクリプトにしている。
+このスクリプトを複数回行った場合、環境変数`PATH`に`miniconda`の環境変数が`Path`に重複して定義される。
+
+### 3.cudnn_install.batを実行してcudnnのインストール
+
+`1.`でダウンロードしたCUDNNをインストールする。CUDNNのみオフィシャルからダウンロードする必要があるので、`install.sh`とは別のスクリプトにしている。
 
 ```batch
 rem 実行は管理者権限で実行してください。

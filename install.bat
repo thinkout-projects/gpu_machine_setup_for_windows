@@ -12,10 +12,10 @@ REM chocolatey install
 @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "[System.Net.ServicePointManager]::SecurityProtocol = 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 choco upgrade chocolatey -y
 choco install choco.config -y
-SET CONDA="%HOMEDRIVE%\tools\miniconda3\condabin\conda"
-SET PIP="%HOMEDRIVE%\tools\miniconda3\Scripts\pip.exe"
+SET CONDA=%HOMEDRIVE%\tools\miniconda3\condabin\conda.exe
+SET PIP=%HOMEDRIVE%\tools\miniconda3\Scripts\pip.exe
 ECHO miniconda settings.
-%CONDA% install -y python==3.8.12 pip
+%CONDA% install python==3.8.12 pip
 REM -------- conda env --------
 REM %CONDA% create -y -n tensor python==3.8.12
 REM %CONDA% activate tensor

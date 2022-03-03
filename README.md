@@ -1,5 +1,9 @@
 # WindowsのGPU環境を作る
 
+Windows上でTensorflow GPUを使用できる環境を、バッチファイルを用いて実装する。
+
+大まかな方法としては、パッケージマネージャのChocolateyを使用してCUDAとminiconda等をインストールして設定する。
+
 ## 必要箇所の書き換え
 
 Tensorflowのバージョンが違う場合は、以下のファイル内容を変更する
@@ -24,7 +28,7 @@ Tensorflowのバージョンが違う場合は、以下のファイル内容を�
 
 #### 1-2.ダウンロード
 
-以下のURLからダウンロードする。
+以下のURLから`1-1`で調べたばCUDNNのバージョンをダウンロードする。
 
 > CUDNNのダウンロード
 > https://developer.nvidia.com/rdp/cudnn-archive
@@ -45,10 +49,6 @@ rem 実行は管理者権限で実行してください。
 .\install.bat
 ```
 
-#### 2-2. 複数回実行の注意
-
-このスクリプトを複数回行った場合、環境変数`PATH`に`miniconda`の環境変数が`Path`に重複して定義される。
-
 ### 3.cudnn_install.batを実行してcudnnのインストール
 
 `1.`でダウンロードしたCUDNNをインストールする。CUDNNのみオフィシャルからダウンロードする必要があるので、`install.sh`とは別のスクリプトにしている。
@@ -60,10 +60,10 @@ rem 実行は管理者権限で実行してください。
 
 ### 5.GPUテスト
 
-CUDAが実行できるかどうかをテストする
+CUDAが実行できるかどうかをテストする。
 
 ```batch
-.\test.bat
+python gpu_test.py
 ```
 
 ## 実行時のエラーのヒント

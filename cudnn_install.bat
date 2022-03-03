@@ -1,6 +1,6 @@
 @echo off
 set DOWNLOAD_DIR=%~dp0
-set CUDA_INSTALL_TARGET_DIR=C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v%CUDA_VER%
+set CUDA_INSTALL_TARGET_DIR=%PROGRAMFILES%\NVIDIA GPU Computing Toolkit\CUDA\v%CUDA_VER%
 set CURRENT_DIR=%~dp0
 set TEMP_DIR_NAME=cudnn-achive-dir
 CD /d %~dp0

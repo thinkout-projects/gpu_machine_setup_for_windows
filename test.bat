@@ -1,2 +1,6 @@
-CD /d %~dp0
-python gpu_test.py
+@echo off
+CD /d "%~dp0"
+
+
+
+PAUSE

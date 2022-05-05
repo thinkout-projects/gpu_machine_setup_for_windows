@@ -12,7 +12,7 @@ Tensorflowのバージョンが違う場合は、以下のファイル内容を�
 | ---------------- | ---------------------------------------------- |
 | choco.config     | `<package id="cuda" version="11.2.2.46133" />` |
 | install.bat      | `SETX /m CUDA_VER "11.2"`                      |
-|                  | `SETX /m CUDA_VER_PATH_NAME "11_2"`            |
+|                  | `SETX /m CUDA_VER_PATH_NAME "v11.2"`           |
 | requirements.txt | `tensorflow-gpu==2.5.3`                        |
 
 ## 作業手順
@@ -55,7 +55,7 @@ rem 実行は管理者権限で実行してください。
 | ------------------------- | ------------------------------------------------------------ |
 | CUDA_ROOT                 | CUDA Tool Kitのインストール先                                |
 | CUDA_VER                  | 使用したいCUDAのバージョン番号                               |
-| CUDA_VER_PATH_NAME        | CUDA_VERのピリオドをアンダーバーに変更したもの               |
+| CUDA_VER_PATH_NAME        | CUDAのディレクトリ用バージョン表記                           |
 | MINICONDA_PATH            | MINICONDAのインストール先と、各種実行ファイルの設置先パス    |
 | PATH                      | MINICONDA_PATHを追記する。                                   |
 | CUDA_PATH                 | CUDAが使用する環境変数。インストール時のデフォルトの内容から、CUDA_ROOTとCUDA_VER_PATH_NAMEで指定したものへ変更する。 |
